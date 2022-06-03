@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
 //still need to set up main API route -- not sure what project yet
+router.use('/users', require('./usersRoutes'));
+router.use('/auth', require('./authRoutes'));
 
 router.use((req, res, next) => {
   const err = new Error('API route not found!');

@@ -8,8 +8,8 @@ import Routes from './components/Routes';
 
 //connects the store with the routes
 render(
-  <Provider store={store}>
-    <Routes />
-  </Provider>,
-  document.querySelector('#main')
+  // <Provider store={store}>
+  <Routes />,
+  // </Provider>,
+  document.querySelector('#app')
 );
