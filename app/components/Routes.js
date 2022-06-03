@@ -1,12 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
-const Routes = () => {
+import CreateAccount from './CreateAccount';
+
+const AppRoutes = () => {
   return (
     <Router>
-      <div>Hello</div>
+      <Routes>
+        <Route path="/create-account" element={<CreateAccount />} />
+      </Routes>
     </Router>
   );
 };
 
-export default Routes;
+export default AppRoutes;
