@@ -74,4 +74,12 @@ User.beforeCreate(async (user) => {
   user.password = hashedPw;
 });
 
+User.prototype.toJSON = function () {
+  return {
+    token: this.token,
+    email: this.email,
+    profilePicture: this.profilePicture,
+  };
+};
+
 module.exports = User;

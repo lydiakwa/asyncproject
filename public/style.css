@@ -1,0 +1,10 @@
+fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.create-account-form {
+  display: flex;
+  justify-content: center;
+}

@@ -1,22 +1,30 @@
 import { useState } from 'react';
-import { createUser } from '../redux/users';
+import { useDispatch } from 'react-redux';
+
+import { postUser } from '../redux/users';
 
 function CreateAccount() {
   const [formState, setFormState] = useState({
     email: '',
     password: '',
   });
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.name]: event.target.value });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(postUser(formState));
+  };
+
   console.log(formState);
   return (
-    <div>
-      <form class="pure-form">
+    <div className="form">
+      <form className="create-account-form" onSubmit={handleSubmit}>
         <fieldset>
-          <legend>Create A New Account</legend>
+          <legend>Create a New Account</legend>
           <input
             name="email"
             value={formState.email}
@@ -31,10 +39,10 @@ function CreateAccount() {
             placeholder="Password"
             onChange={handleChange}
           />
-          <label for="default-remember">
+          <label htmlFor="default-remember">
             <input type="checkbox" id="default-remember" /> Remember me
           </label>
-          <button type="submit" class="pure-button pure-button-primary">
+          <button type="submit" className="pure-button pure-button-primary">
             Sign in
           </button>
         </fieldset>

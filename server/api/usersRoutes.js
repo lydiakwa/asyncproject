@@ -4,8 +4,6 @@ const { User } = require('../db/dbIndex');
 
 //create GET, POST, PUT, DELETE routes here
 
-//get individual user
-
 //create individual user
 router.post('/', async (req, res, next) => {
   try {
