@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { postUser } from '../redux/user';
+import { getUser } from '../redux/user';
 
-function CreateAccount() {
+function LoginPage() {
   const [formState, setFormState] = useState({
     email: '',
     password: '',
@@ -18,14 +18,14 @@ function CreateAccount() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(postUser(formState, navigate));
+    dispatch(getUser(formState, navigate)); //get auth
   };
 
   return (
     <div className="form">
-      <form className="create-account-form" onSubmit={handleSubmit}>
+      <form className="login-form" onSubmit={handleSubmit}>
         <fieldset>
-          <legend>Create a New Account</legend>
+          <legend>Welcome!</legend>
           <input
             name="email"
             value={formState.email}
@@ -44,7 +44,7 @@ function CreateAccount() {
             <input type="checkbox" id="default-remember" /> Remember me
           </label>
           <button type="submit" className="pure-button pure-button-primary">
-            Create Account
+            Login
           </button>
         </fieldset>
       </form>
@@ -52,4 +52,4 @@ function CreateAccount() {
   );
 }
 
-export default CreateAccount;
+export default LoginPage;
