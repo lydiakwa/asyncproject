@@ -12,8 +12,8 @@ const seed = async () => {
     });
 
     const duaneMap = await GuideEntry.create({
-      lat: 51.505,
-      long: -0.09,
+      lat: 32.739761,
+      long: -117.14135,
     });
 
     await duane.setGuideEntries([duaneMap]);
