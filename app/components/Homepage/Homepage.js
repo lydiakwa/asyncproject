@@ -1,12 +1,9 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 //to synch component with state
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //use selector is global state
 import { Link, Outlet } from 'react-router-dom';
-
 import { getMaps } from '../../redux/maps';
-import MapsView from './MapsView';
 
 function Homepage() {
   const dispatch = useDispatch();
@@ -20,7 +17,6 @@ function Homepage() {
   //empty second argument means it only synchs once
 
   const maps = useSelector((state) => state.maps);
-  console.log(maps);
 
   return (
     <div>
@@ -29,8 +25,7 @@ function Homepage() {
         <ul>
           {maps.map((map) => (
             <li key={map.id}>
-              {' '}
-              <Link to={`/maps/${map.id}`}>{map.city}</Link>
+              <Link to={`/maps/${map.id}`}>{map.title}</Link>
             </li>
           ))}
         </ul>

@@ -10,7 +10,7 @@ const GuideEntry = db.define('guideEntry', {
   long: {
     type: FLOAT,
   },
-  city: {
+  title: {
     type: STRING,
   },
 });

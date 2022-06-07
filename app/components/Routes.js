@@ -7,6 +7,7 @@ import Homepage from './Homepage/Homepage';
 import LoginPage from './LoginPage';
 import Navbar from './Navbar';
 import MapsView from './Homepage/MapsView';
+import CreateMap from './createMap';
 
 import { checkUser } from '../redux/user';
 
@@ -34,7 +35,7 @@ const AppRoutes = () => {
             <Route path="/" element={<MapsView />} />
             <Route path="/maps/:id" element={<MapsView />} />
           </Route>
-          <Route path="/test" element={<div>hii</div>} />
+          <Route path="/maps/create" element={<CreateMap />} />
         </Routes>
       </Router>
     );

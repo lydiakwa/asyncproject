@@ -14,19 +14,19 @@ const seed = async () => {
     const duaneMap = await GuideEntry.create({
       lat: 32.739761,
       long: -117.14135,
-      city: 'San Diego',
+      title: 'San Diego',
     });
 
     const second = await GuideEntry.create({
       lat: 44.97786,
       long: -85.64891,
-      city: 'Suttons Bay',
+      title: 'Suttons Bay',
     });
 
     const third = await GuideEntry.create({
       lat: 40.756378,
       long: -73.923851,
-      city: 'Queens',
+      title: 'Queens',
     });
 
     await duane.setGuideEntries([duaneMap, second, third]);

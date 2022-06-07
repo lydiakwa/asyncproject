@@ -12,7 +12,9 @@ function Navbar() {
         <Link className="link-button" to="/">
           Home
         </Link>
-        <button type="button">Create a Map</button>
+        <Link className="link-button" to="/maps/create">
+          Create a Map
+        </Link>
         <button
           type="button"
           onClick={() => {
