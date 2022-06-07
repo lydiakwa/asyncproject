@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import CreateAccount from './CreateAccount';
-import Homepage from './Homepage';
+import Homepage from './Homepage/Homepage';
 import LoginPage from './LoginPage';
 import Navbar from './Navbar';
+import MapsView from './Homepage/MapsView';
 
 import { checkUser } from '../redux/user';
 
@@ -29,7 +30,10 @@ const AppRoutes = () => {
         <Navbar />
         <Routes>
           {/* registered users pages */}
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Homepage />}>
+            <Route path="/" element={<MapsView />} />
+            <Route path="/maps/:id" element={<MapsView />} />
+          </Route>
           <Route path="/test" element={<div>hii</div>} />
         </Routes>
       </Router>
