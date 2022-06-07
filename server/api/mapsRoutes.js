@@ -11,8 +11,11 @@ router.get('/', requireToken, async (req, res, next) => {
   }
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/', requireToken, async (req, res, next) => {
   try {
+    const newMap = await GuideEntry.create(req.body);
+    await req.user.addGuideEntries(newMap);
+    res.json(await req.user.getGuideEntries());
   } catch (err) {
     next(err);
   }
