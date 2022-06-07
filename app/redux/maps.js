@@ -30,10 +30,12 @@ export const getMaps = (token) => {
   };
 };
 
-export const createAMap = (formData) => {
+export const postMap = (formData, token) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.post('/api/maps', formData);
+      const { data } = await axios.post('/api/maps', formData, {
+        headers: { Authorization: token },
+      });
       dispatch(createMap(data));
     } catch (err) {
       console.log(err);
