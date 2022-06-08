@@ -7,7 +7,13 @@ const { requireToken } = require('../middleware');
 
 router.get('/', requireToken, async (req, res, next) => {
   try {
-    res.json(await req.user.getGuideEntries());
+    res.json(
+      await req.user.getGuideEntries({
+        include: {
+          model: Marker,
+        },
+      })
+    );
   } catch (err) {
     next(err);
   }

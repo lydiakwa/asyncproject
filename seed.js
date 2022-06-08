@@ -1,4 +1,4 @@
-const { db, User, GuideEntry } = require('./server/db/dbIndex.js');
+const { db, User, GuideEntry, Marker } = require('./server/db/dbIndex.js');
 
 // console.log('HERE ARE THE METHODS', Object.keys(Robot.prototype));
 
@@ -29,7 +29,17 @@ const seed = async () => {
       title: 'Queens',
     });
 
+    const markerOne = await Marker.create({
+      lat: 40.728226,
+      long: -73.794853,
+      title: 'MoMI',
+      image:
+        'https://queenspost.com/wp-content/uploads/2021/04/MOMI_041121_Supplied.jpeg',
+      text: 'this is MoMI',
+    });
+
     await duane.setGuideEntries([duaneMap, second, third]);
+    await third.setMarkers([markerOne]);
   } catch (err) {
     console.log(err);
   }

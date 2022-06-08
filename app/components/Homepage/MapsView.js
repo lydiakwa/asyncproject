@@ -8,7 +8,7 @@ function MapCentre({ map }) {
 
   //does the condition based on the second argument, dependency array
   useEffect(() => {
-    console.log(map);
+    console.log(map, 'MAAP');
     leafletMap.setView([map.lat, map.long]);
   }, [map.lat, map.long]);
 
@@ -18,11 +18,11 @@ function MapCentre({ map }) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[map.lat, map.long]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      {map.markers.map((marker) => (
+        <Marker key={marker.id} position={[marker.lat, marker.long]}>
+          <Popup>{marker.text}</Popup>
+        </Marker>
+      ))}
     </>
   );
 }
