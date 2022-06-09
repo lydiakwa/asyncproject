@@ -1,10 +1,60 @@
+html {
+  --medium-dark: #14213d;
+  --link-colour: #fca311;
+  --contrast: #ff784f;
+  --card-background: #dad7cd;
+}
+
 fieldset {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+img {
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+}
 .create-account-form {
   display: flex;
   justify-content: center;
+}
+
+button,
+.link-button {
+  margin: 5px;
+  height: 35px;
+  width: 100px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--medium-dark);
+  color: #e5e5e5;
+  text-decoration: none;
+}
+
+button:hover,
+.link-button:hover {
+  background-color: var(--contrast);
+}
+
+.link-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+fieldSet {
+  border: none;
 }

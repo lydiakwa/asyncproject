@@ -23,9 +23,9 @@ function LoginPage() {
 
   return (
     <div className="form">
+      <h2>Welcome to MapQuest!</h2>
       <form className="login-form" onSubmit={handleSubmit}>
         <fieldset>
-          <legend>Welcome!</legend>
           <input
             name="email"
             value={formState.email}

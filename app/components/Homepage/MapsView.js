@@ -8,7 +8,6 @@ function MapCentre({ map }) {
 
   //does the condition based on the second argument, dependency array
   useEffect(() => {
-    console.log(map, 'MAAP');
     leafletMap.setView([map.lat, map.long]);
   }, [map.lat, map.long]);
 
@@ -20,7 +19,10 @@ function MapCentre({ map }) {
       />
       {map.markers.map((marker) => (
         <Marker key={marker.id} position={[marker.lat, marker.long]}>
-          <Popup>{marker.text}</Popup>
+          <Popup>
+            {marker.text}
+            <img src={marker.image} />
+          </Popup>
         </Marker>
       ))}
     </>

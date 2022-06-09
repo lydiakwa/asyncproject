@@ -12,20 +12,22 @@ function CreateMap() {
   });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.name]: event.target.value });
   };
-
+  //you will want to redirect to the EDIT map component here
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const token = localStorage.getItem('token');
-    dispatch(postMap(formState, token));
+    dispatch(postMap(formState, token, navigate));
   };
 
   return (
     <div className="form">
+      <h2>Create a new map</h2>
       <form className="pure-form pure-form-aligned" onSubmit={handleSubmit}>
         <fieldset>
           <div className="pure-control-group">
